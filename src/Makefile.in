@@ -85,13 +85,13 @@ am__base_list = \
 am__installdirs = "$(DESTDIR)$(pidgindir)"
 LTLIBRARIES = $(pidgin_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-logviewer_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+logplugin_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
-am_logviewer_la_OBJECTS = logviewer.lo
-logviewer_la_OBJECTS = $(am_logviewer_la_OBJECTS)
-logviewer_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+am_logplugin_la_OBJECTS = logplugin.lo
+logplugin_la_OBJECTS = $(am_logplugin_la_OBJECTS)
+logplugin_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
-	$(logviewer_la_LDFLAGS) $(LDFLAGS) -o $@
+	$(logplugin_la_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -105,8 +105,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(logviewer_la_SOURCES)
-DIST_SOURCES = $(logviewer_la_SOURCES)
+SOURCES = $(logplugin_la_SOURCES)
+DIST_SOURCES = $(logplugin_la_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -185,8 +185,6 @@ PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
-PCRE_CFLAGS = @PCRE_CFLAGS@
-PCRE_LIBS = @PCRE_LIBS@
 PIDGIN_CFLAGS = @PIDGIN_CFLAGS@
 PIDGIN_DATADIR = @PIDGIN_DATADIR@
 PIDGIN_LIBDIR = @PIDGIN_LIBDIR@
@@ -257,14 +255,14 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 pidgindir = $(libdir)/pidgin
-pidgin_LTLIBRARIES = logviewer.la
-logviewer_la_SOURCES = logviewer.c
-logviewer_la_LDFLAGS = -shared -module -avoid-version -Wl,--as-needed
-logviewer_la_LIBADD = $(GLIB_LIBS) $(GTK_LIBS) $(DBUS_LIBS) @LTLIBINTL@
+pidgin_LTLIBRARIES = logplugin.la
+logplugin_la_SOURCES = logplugin.c
+logplugin_la_LDFLAGS = -shared -module -avoid-version -Wl,--as-needed
+logplugin_la_LIBADD = $(GLIB_LIBS) $(GTK_LIBS) $(DBUS_LIBS) @LTLIBINTL@
 AM_CPPFLAGS = \
         -DDATADIR=\"$(PIDGIN_DATADIR)\" \
 	-DLOCALEDIR=\"$(localedir)\" \
-	$(WERROR_CFLAGS) -W -Wall -Wno-unused-parameter \
+	-W -Wall -Wno-unused-parameter \
 	-std=gnu99 \
         $(PIDGIN_CFLAGS) \
         $(GLIB_CFLAGS) \
@@ -337,8 +335,8 @@ clean-pidginLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-logviewer.la: $(logviewer_la_OBJECTS) $(logviewer_la_DEPENDENCIES) 
-	$(logviewer_la_LINK) -rpath $(pidgindir) $(logviewer_la_OBJECTS) $(logviewer_la_LIBADD) $(LIBS)
+logplugin.la: $(logplugin_la_OBJECTS) $(logplugin_la_DEPENDENCIES) 
+	$(logplugin_la_LINK) -rpath $(pidgindir) $(logplugin_la_OBJECTS) $(logplugin_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -346,7 +344,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/logviewer.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/logplugin.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

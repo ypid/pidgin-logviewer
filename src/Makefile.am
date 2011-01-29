@@ -11,16 +11,16 @@
 localedir = $(datadir)/locale
 pidgindir = $(libdir)/pidgin
 
-pidgin_LTLIBRARIES = logviewer.la
+pidgin_LTLIBRARIES = logplugin.la
 
-logviewer_la_SOURCES = logviewer.c
-logviewer_la_LDFLAGS = -shared -module -avoid-version -Wl,--as-needed
-logviewer_la_LIBADD = $(GLIB_LIBS) $(GTK_LIBS) $(DBUS_LIBS) @LTLIBINTL@
+logplugin_la_SOURCES = logplugin.c
+logplugin_la_LDFLAGS = -shared -module -avoid-version -Wl,--as-needed
+logplugin_la_LIBADD = $(GLIB_LIBS) $(GTK_LIBS) $(DBUS_LIBS) @LTLIBINTL@
 
 AM_CPPFLAGS = \
         -DDATADIR=\"$(PIDGIN_DATADIR)\" \
 	-DLOCALEDIR=\"$(localedir)\" \
-	$(WERROR_CFLAGS) -W -Wall -Wno-unused-parameter \
+	-W -Wall -Wno-unused-parameter \
 	-std=gnu99 \
         $(PIDGIN_CFLAGS) \
         $(GLIB_CFLAGS) \

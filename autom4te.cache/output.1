@@ -748,8 +748,6 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIB@&t@OBJS
-PCRE_LIBS
-PCRE_CFLAGS
 WERROR_CFLAGS
 DBUS_LIBS
 DBUS_CFLAGS
@@ -920,9 +918,7 @@ PKG_CONFIG
 PIDGIN_CFLAGS
 PIDGIN_LIBS
 DBUS_CFLAGS
-DBUS_LIBS
-PCRE_CFLAGS
-PCRE_LIBS'
+DBUS_LIBS'
 
 
 # Initialize some variables set by options.
@@ -1584,8 +1580,6 @@ Some influential environment variables:
   PIDGIN_LIBS linker flags for PIDGIN, overriding pkg-config
   DBUS_CFLAGS C compiler flags for DBUS, overriding pkg-config
   DBUS_LIBS   linker flags for DBUS, overriding pkg-config
-  PCRE_CFLAGS C compiler flags for PCRE, overriding pkg-config
-  PCRE_LIBS   linker flags for PCRE, overriding pkg-config
 
 Use these variables to override the choices made by `configure' or to help
 it to find libraries and programs with nonstandard names/locations.
@@ -13199,81 +13193,6 @@ then
         WERROR_CFLAGS="-Werror"
 fi
 
-
-
-
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for PCRE" >&5
-$as_echo_n "checking for PCRE... " >&6; }
-
-if test -n "$PCRE_CFLAGS"; then
-    pkg_cv_PCRE_CFLAGS="$PCRE_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libpcre\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "libpcre") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_PCRE_CFLAGS=`$PKG_CONFIG --cflags "libpcre" 2>/dev/null`
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$PCRE_LIBS"; then
-    pkg_cv_PCRE_LIBS="$PCRE_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libpcre\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "libpcre") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_PCRE_LIBS=`$PKG_CONFIG --libs "libpcre" 2>/dev/null`
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-
-
-
-if test $pkg_failed = yes; then
-        
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        PCRE_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "libpcre" 2>&1`
-        else 
-	        PCRE_PKG_ERRORS=`$PKG_CONFIG --print-errors "libpcre" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$PCRE_PKG_ERRORS" >&5
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-                as_fn_error "
-*** PCRE library is required to build pidgin-musictracker
-*** Please make sure you have the PCRE development files installed
-*** The latest version of PCRE is always available at http://www.pcre.org/" "$LINENO" 5
-elif test $pkg_failed = untried; then
-	as_fn_error "
-*** PCRE library is required to build pidgin-musictracker
-*** Please make sure you have the PCRE development files installed
-*** The latest version of PCRE is always available at http://www.pcre.org/" "$LINENO" 5
-else
-	PCRE_CFLAGS=$pkg_cv_PCRE_CFLAGS
-	PCRE_LIBS=$pkg_cv_PCRE_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-	:
-fi
 
 
 

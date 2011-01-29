@@ -748,8 +748,6 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
-PCRE_LIBS
-PCRE_CFLAGS
 WERROR_CFLAGS
 DBUS_LIBS
 DBUS_CFLAGS
@@ -920,9 +918,7 @@ PKG_CONFIG
 PIDGIN_CFLAGS
 PIDGIN_LIBS
 DBUS_CFLAGS
-DBUS_LIBS
-PCRE_CFLAGS
-PCRE_LIBS'
+DBUS_LIBS'
 
 
 # Initialize some variables set by options.
@@ -1584,8 +1580,6 @@ Some influential environment variables:
   PIDGIN_LIBS linker flags for PIDGIN, overriding pkg-config
   DBUS_CFLAGS C compiler flags for DBUS, overriding pkg-config
   DBUS_LIBS   linker flags for DBUS, overriding pkg-config
-  PCRE_CFLAGS C compiler flags for PCRE, overriding pkg-config
-  PCRE_LIBS   linker flags for PCRE, overriding pkg-config
 
 Use these variables to override the choices made by `configure' or to help
 it to find libraries and programs with nonstandard names/locations.
@@ -4443,13 +4437,13 @@ if test "${lt_cv_nm_interface+set}" = set; then :
 else
   lt_cv_nm_interface="BSD nm"
   echo "int some_variable = 0;" > conftest.$ac_ext
-  (eval echo "\"\$as_me:4446: $ac_compile\"" >&5)
+  (eval echo "\"\$as_me:4440: $ac_compile\"" >&5)
   (eval "$ac_compile" 2>conftest.err)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:4449: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
+  (eval echo "\"\$as_me:4443: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
   (eval "$NM \"conftest.$ac_objext\"" 2>conftest.err > conftest.out)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:4452: output\"" >&5)
+  (eval echo "\"\$as_me:4446: output\"" >&5)
   cat conftest.out >&5
   if $GREP 'External.*some_variable' conftest.out > /dev/null; then
     lt_cv_nm_interface="MS dumpbin"
@@ -5655,7 +5649,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 5658 "configure"' > conftest.$ac_ext
+  echo '#line 5652 "configure"' > conftest.$ac_ext
   if { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_compile\""; } >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -7185,11 +7179,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7188: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7182: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:7192: \$? = $ac_status" >&5
+   echo "$as_me:7186: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -7524,11 +7518,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7527: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7521: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:7531: \$? = $ac_status" >&5
+   echo "$as_me:7525: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -7629,11 +7623,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7632: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7626: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:7636: \$? = $ac_status" >&5
+   echo "$as_me:7630: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -7684,11 +7678,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:7687: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:7681: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:7691: \$? = $ac_status" >&5
+   echo "$as_me:7685: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -10054,7 +10048,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 10057 "configure"
+#line 10051 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -10150,7 +10144,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 10153 "configure"
+#line 10147 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -13199,81 +13193,6 @@ then
         WERROR_CFLAGS="-Werror"
 fi
 
-
-
-
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for PCRE" >&5
-$as_echo_n "checking for PCRE... " >&6; }
-
-if test -n "$PCRE_CFLAGS"; then
-    pkg_cv_PCRE_CFLAGS="$PCRE_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libpcre\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "libpcre") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_PCRE_CFLAGS=`$PKG_CONFIG --cflags "libpcre" 2>/dev/null`
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$PCRE_LIBS"; then
-    pkg_cv_PCRE_LIBS="$PCRE_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libpcre\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "libpcre") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_PCRE_LIBS=`$PKG_CONFIG --libs "libpcre" 2>/dev/null`
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-
-
-
-if test $pkg_failed = yes; then
-
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        PCRE_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "libpcre" 2>&1`
-        else
-	        PCRE_PKG_ERRORS=`$PKG_CONFIG --print-errors "libpcre" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$PCRE_PKG_ERRORS" >&5
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-                as_fn_error "
-*** PCRE library is required to build pidgin-musictracker
-*** Please make sure you have the PCRE development files installed
-*** The latest version of PCRE is always available at http://www.pcre.org/" "$LINENO" 5
-elif test $pkg_failed = untried; then
-	as_fn_error "
-*** PCRE library is required to build pidgin-musictracker
-*** Please make sure you have the PCRE development files installed
-*** The latest version of PCRE is always available at http://www.pcre.org/" "$LINENO" 5
-else
-	PCRE_CFLAGS=$pkg_cv_PCRE_CFLAGS
-	PCRE_LIBS=$pkg_cv_PCRE_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-	:
-fi
 
 
 

@@ -3,7 +3,23 @@
  * This code is licensed under GPL v2
  */ 
 
-#include "internal.h"
+#ifndef WIN32
+#include "config.h"
+#else
+#include <config-win32.h>
+#include <win32dep.h>
+#include <windows.h>
+#endif
+
+#include <stdio.h>
+#include <strings.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <assert.h>
+#include <math.h>
+#include <stdint.h>
+
+#include "plugin.h"
 #include "pidgin.h"
 
 #include "account.h"
@@ -873,12 +889,12 @@ static PurplePluginInfo info =
 	PURPLE_PRIORITY_DEFAULT,                      /**< priority       */
 
 	"gtk-log_view",                               /**< id             */
-	N_("Log Viewer"),                             /**< name           */
-	DISPLAY_VERSION,                              /**< version        */
+	"Log Viewer",                             /**< name           */
+	VERSION,                              /**< version        */
 	                                              /**  summary        */
-	N_("View and search logs in a user-friendly way."),
+	"View and search logs in a user-friendly way.",
 	                                              /**  description    */
-	N_("this plugin presents a new user-friendly intuitive log viewer."),
+	"this plugin presents a new user-friendly intuitive log viewer.",
 	"Tirtha Chatterjee <tirtha.p.chatterjee@gmail.com>",             /**< author         */
 	"http://thebengaliheart.wordpress.com/",                               /**< homepage       */
 
