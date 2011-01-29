@@ -3,6 +3,10 @@
  * This code is licensed under GPL v2
  */ 
 
+
+#define PURPLE_PLUGINS
+
+
 #ifndef WIN32
 #include "config.h"
 #else
@@ -235,7 +239,7 @@ log_day_selected_cb(GtkWidget *calendar, PidginLogViewerNew *dialog)
 		{
 			gtk_list_store_append(GTK_LIST_STORE(model), &iter);
                         gtk_list_store_set(GTK_LIST_STORE(model), &iter, 0,
-                                purple_utf8_strftime(_("%I:%M %p"),
+                                purple_utf8_strftime("%I:%M %p",
                                         log->tm ? log->tm : localtime(&log->time)),
                                 1, log, -1);
                         ++logsonday;
@@ -481,7 +485,7 @@ void log_find_log_cb(GtkWidget *w, PidginLogViewerNew *lvn)
                         if(*read2 && purple_strcasestr(read2,searchfilter) !=NULL)
                         {
                                 const char *date, *bname;
-                                date = purple_utf8_strftime(_("%a %d %b %Y %I:%M %p"),
+                                date = purple_utf8_strftime("%a %d %b %Y %I:%M %p",
                                         log->tm ? log->tm : localtime(&log->time));
                                 bname = purple_contact_get_alias(purple_buddy_get_contact(bdy));
                                 if (*bname == '\0') {
@@ -621,8 +625,8 @@ delete_log_cb(GtkWidget *button, PidginLogViewerNew *lvn)
         
         if (!purple_log_delete(lvn->log))
 	{
-		purple_notify_error(NULL, NULL, _("Log Deletion Failed"),
-		                  _("Check permissions and try again."));
+		purple_notify_error(NULL, NULL, "Log Deletion Failed",
+		                  "Check permissions and try again.");
                 return;
 	}
         lvn->log = NULL;
@@ -870,7 +874,7 @@ actions(PurplePlugin *plugin, gpointer context)
 	GList *l = NULL;
 	PurplePluginAction *act = NULL;
 
-	act = purple_plugin_action_new(_("View Logs"), pidgin_log_win_show);
+	act = purple_plugin_action_new("View Logs", pidgin_log_win_show);
 	l = g_list_append(l, act);
 
 	return l;
