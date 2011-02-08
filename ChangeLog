@@ -1,0 +1,13 @@
+Pidgin Log Viewer
+
+version 0.2.0 (03/01/2011):
+    * added combo for all logs on a certain date
+    * added delete button to delete individual logs
+    * added a textbox to quick-find text within a log
+    * added highlight to the 'search logs' results
+    
+version 0.1.0 (01/01/2011):
+    * made the search-logs feature non-blocking
+    
+version 0.0.1 (??/??/??):
+    * built plugin
