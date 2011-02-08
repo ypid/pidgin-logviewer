@@ -386,7 +386,7 @@ log_select_search_result_cb(GtkTreeSelection *sel, PidginLogViewerNew *dialog)
 	if (!gtk_tree_selection_get_selected(sel, &model, &iter))
 		return;
 
-	gtk_tree_model_get( model, &iter, 2, &log);
+	gtk_tree_model_get( model, &iter, 2, &log, -1);
 	
         if(log == NULL) return;    
         read = purple_log_read(log, &flags);
@@ -731,12 +731,13 @@ pidgin_log_win_show(PurplePluginAction *action)
         gtk_cell_layout_pack_start( GTK_CELL_LAYOUT( lvn->logsonday_combo ), rend, TRUE );
         gtk_cell_layout_set_attributes(
                 GTK_CELL_LAYOUT( lvn->logsonday_combo ), rend, "markup", 0, NULL );
-        g_signal_connect (G_OBJECT (lvn->logsonday_combo), "changed",
-                G_CALLBACK (logsonday_combo_changed_cb), lvn);
         
         /* This is done to adjust the size of the combo box */
         gtk_combo_box_append_text(GTK_COMBO_BOX (lvn->logsonday_combo), "00:00 AM");
         gtk_combo_box_remove_text(GTK_COMBO_BOX (lvn->logsonday_combo), 0);
+        
+        g_signal_connect (G_OBJECT (lvn->logsonday_combo), "changed",
+                G_CALLBACK (logsonday_combo_changed_cb), lvn);
                 
         lvn->find_filter_entry = gtk_entry_new();
         g_signal_connect (G_OBJECT (lvn->find_filter_entry), "changed",
