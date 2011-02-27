@@ -8,8 +8,9 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+AC_PREREQ(2.64)
 AC_INIT([PidginLogviewer],
-        [m4_esyscmd([cat version | tr -d '\n'])],
+        [m4_esyscmd_s([cat version])],
         [nitdgplug@googlegroups.com],
         [pidgin-logviewer])
 AC_CONFIG_AUX_DIR(config)
