@@ -835,7 +835,8 @@ pidgin_log_win_show( PurplePluginAction *action )
                                     GTK_POLICY_NEVER, GTK_POLICY_ALWAYS );
 
     gtk_container_add( GTK_CONTAINER( sw1 ), lvn->search_treeview );
-    gtk_widget_set_size_request( sw1, -1, 120 );
+    gtk_widget_set_size_request( sw1, -1, 220 );
+    /* 220 is the height of the message search result list. */
 
     hbox3 = gtk_hbox_new( FALSE, PIDGIN_HIG_BOX_SPACE );
 
