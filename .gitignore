@@ -6,6 +6,7 @@ config.log
 config.status
 libtool
 stamp-h1
+autom4te.cache
 
 # Object files
 *.o
