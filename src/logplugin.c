@@ -45,28 +45,28 @@
 typedef struct _PidginLogViewerNew PidginLogViewerNew;
 
 struct _PidginLogViewerNew {
-    GList *            logs;            /**< The list of logs viewed in this viewer   */
+    GList *            logs;            /* The list of logs viewed in this viewer   */
 
-    GtkWidget *        window;          /**< The viewer's window                      */
-    GtkListStore *     buddy_liststore; /**< The treestore containing names of buddies */
-    GtkWidget *        buddy_treeview;  /**< The treeview representing said buddy_liststore */
-    GtkWidget *        search_treeview; /**< The treeview representing said buddy_liststore */
-    GtkWidget *        logsonday_combo; /**< The treeview representing said buddy_liststore */
-    GtkWidget *        calendar;        /**<  The  GtkCalendar where chat log dates are highlighted */
-    GtkWidget *        imhtml_conv;     /**< The imhtml to display said logs of conversations */
-    GtkWidget *        imhtml_search;   /**< The imhtml to display said logs of search */
+    GtkWidget *        window;          /* The viewer's window                      */
+    GtkListStore *     buddy_liststore; /* The treestore containing names of buddies */
+    GtkWidget *        buddy_treeview;  /* The treeview representing said buddy_liststore */
+    GtkWidget *        search_treeview; /* The treeview representing said buddy_liststore */
+    GtkWidget *        logsonday_combo; /* The treeview representing said buddy_liststore */
+    GtkWidget *        calendar;        /*  The  GtkCalendar where chat log dates are highlighted */
+    GtkWidget *        imhtml_conv;     /* The imhtml to display said logs of conversations */
+    GtkWidget *        imhtml_search;   /* The imhtml to display said logs of search */
     GtkWidget *        search_spinner;
     GtkWidget *        search_button;
     GtkWidget *        delete_button;
     GtkWidget *        find_filter_entry;
-    GtkWidget *        search_entry;    /**< The search entry, in which search terms
+    GtkWidget *        search_entry;    /* The search entry, in which search terms
                                          *   are entered                              */
-    PurpleLogReadFlags conv_flags;      /**< The most recently used log flags         */
-    PurpleLogReadFlags search_flags;    /**< The most recently used log flags         */
-    char *             search;          /**< The string currently being searched for  */
-    char *             find;            /**< The string to be searched within the log */
+    PurpleLogReadFlags conv_flags;      /* The most recently used log flags         */
+    PurpleLogReadFlags search_flags;    /* The most recently used log flags         */
+    char *             search;          /* The string currently being searched for  */
+    char *             find;            /* The string to be searched within the log */
     gboolean           search_cancelled;
-    PurpleAccount *    account;         /**< The account currently selected  */
+    PurpleAccount *    account;         /* The account currently selected  */
     PurpleContact *    contact;
     PurpleLog *        log;
 };
@@ -105,6 +105,7 @@ log_mark_calendar_by_month( PidginLogViewerNew *dialog, uint month, uint year )
     for (child = purple_blist_node_get_first_child((PurpleBlistNode *)contact );
          child != NULL;
          child = purple_blist_node_get_sibling_next( child )) {
+
         const char *buddy_name;
         PurpleAccount *account;
 
@@ -138,6 +139,7 @@ log_mark_calendar_by_month( PidginLogViewerNew *dialog, uint month, uint year )
     }
     gtk_calendar_select_day( GTK_CALENDAR( dialog->calendar ), day );
 }
+
 void
 logsonday_combo_changed_cb( GtkWidget *combo, PidginLogViewerNew *dialog )
 {
@@ -258,6 +260,7 @@ log_day_selected_cb( GtkWidget *calendar, PidginLogViewerNew *dialog )
         gtk_widget_set_sensitive( dialog->logsonday_combo, FALSE );
     }
 }
+
 void
 month_changed_cb( GtkWidget *calendar, PidginLogViewerNew *dialog )
 {
@@ -267,6 +270,7 @@ month_changed_cb( GtkWidget *calendar, PidginLogViewerNew *dialog )
     gtk_calendar_select_day( GTK_CALENDAR( calendar ), 1 );
     log_mark_calendar_by_month( dialog, month, year );
 }
+
 static void
 log_select_buddy_cb( GtkTreeSelection *sel, PidginLogViewerNew *dialog )
 {
@@ -370,6 +374,7 @@ populate_log_tree_buddies( PidginLogViewerNew *lvn )
     }
     gtk_tree_sortable_set_sort_column_id( GTK_TREE_SORTABLE( lvn->buddy_liststore ), 0, GTK_SORT_ASCENDING );
 }
+
 static void
 log_select_search_result_cb( GtkTreeSelection *sel, PidginLogViewerNew *dialog )
 {
@@ -416,6 +421,7 @@ log_select_search_result_cb( GtkTreeSelection *sel, PidginLogViewerNew *dialog )
     }
     gtk_imhtml_search_find( GTK_IMHTML( dialog->imhtml_search ), filter );
 }
+
 void log_find_log_cb( GtkWidget *w, PidginLogViewerNew *lvn )
 {
     GList *buddies, *logs, *l;
@@ -879,28 +885,30 @@ static PurplePluginInfo info =
     PURPLE_PLUGIN_MAGIC,
     PURPLE_MAJOR_VERSION,
     PURPLE_MINOR_VERSION,
-    PURPLE_PLUGIN_STANDARD,                   /**< type           */
-    PIDGIN_PLUGIN_TYPE,                       /**< ui_requirement */
-    0,                                        /**< flags          */
-    NULL,                                     /**< dependencies   */
-    PURPLE_PRIORITY_DEFAULT,                  /**< priority       */
+    PURPLE_PLUGIN_STANDARD,                   /* type           */
+    PIDGIN_PLUGIN_TYPE,                       /* ui_requirement */
+    0,                                        /* flags          */
+    NULL,                                     /* dependencies   */
+    PURPLE_PRIORITY_DEFAULT,                  /* priority       */
 
-    "gtk-log_view",                           /**< id             */
-    "Log Viewer",                             /**< name           */
-    VERSION,                                  /**< version        */
+    "gtk-log_view",                           /* id             */
+    "Log Viewer",                             /* name           */
+    VERSION,                                  /* version        */
+
     /**  summary        */
     "View and search logs in a user-friendly way.",
+
     /**  description    */
-    "this plugin presents a new user-friendly intuitive log viewer.",
-    "Tirtha Chatterjee <tirtha.p.chatterjee@gmail.com>", /**< author         */
-    "http://thebengaliheart.wordpress.com/",             /**< homepage       */
+    "This plugin presents a new user-friendly intuitive log viewer.",
+    "Tirtha Chatterjee <tirtha.p.chatterjee@gmail.com>", /* author         */
+    "https://github.com/ypid/pidgin-logviewer",          /* homepage       */
 
-    NULL,                                                /**< load           */
-    NULL,                                                /**< unload         */
-    NULL,                                                /**< destroy        */
+    NULL,                                                /* load           */
+    NULL,                                                /* unload         */
+    NULL,                                                /* destroy        */
 
-    NULL,                                                /**< ui_info        */
-    NULL,                                                /**< extra_info     */
+    NULL,                                                /* ui_info        */
+    NULL,                                                /* extra_info     */
     NULL,
     actions,
 
